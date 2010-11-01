@@ -12,9 +12,8 @@ Gem::Specification.new do |s|
   s.summary     = %q{Render an ActiveRecord result set as a chart}
   s.description = <<-EOF
     Defines Array#to_chart that will accept ActiveRecord result sets
-    and render them as a chart.  Currently assumes OpenFlashChart as the
-    only supported charting engine.  Protovis based charting coming
-    soon.
+    and render them as a chart.  Currently assumes Highcharts (highcharts.com)
+    as the charting engine.
   EOF
 
   s.rubyforge_project = "ar_to_chart"
