@@ -1,33 +1,27 @@
 h1. Description
 
-p. ar_result_calculations adds methods to Array for when Array is an ActiveRecord result set. For example:
+p. ar_to_chart generates Highcharts-based charts from an ActiveRecord result set. For example:
 
-bc. Product.all.sum(:price)
+bc. Product.all.to_chart(:price, :product)
 
-p. Will return the sum of the attribute :price from all rows in the result set.  Note this is not the same as Product.sum(:price) which will create an SQL statement that does the summing.  When possible the ActiveRecord call which uses SQL will be more efficient if the result set has not already been returned.  
+p. Will generate HTML for a chart container and javascript to render the chart in the browser.
 
-bc. Product.all.average(:price)
-Product.all.regression(:sales_volumn)
+h2. Dependencies
 
-p. Will calculate the average and regression of the specified columns.
+ar_to_chart depends on:
 
-bc. Product.all(:select => '(price * 2) as double_price').make_numeric(:double_price).sum(:double_price)
+*	jQuery (jquery.com)
+* 	Highcharts (www.highcharts.com)
+*	arToChart javascript object (found in the files directory of the gem). This is the javascript interface between ar_to_chart and the Highcharts library
+*	ar_to_chart.css (found in the files directory of the gem).  This css defines the attributes used by the ar_to_chart javascript.
 
-p. Will return the sum of the derived column 'double_price'.  Note the call to **make_numeric** which is will coerce the derived column into numbers that can then be summed.  ActiveRecord returns derived columns as strings hence the required coercion.
+h2. Examples
 
-h2. Methods created on Array
+p. Coming soon
 
-p. All methods take one parameter (column name).
+h2. Options
 
-|_. Method|_. Description|
-|sum|Sum the given column.  Delegates to super() if not an AR result set|
-|mean|Mean of the given column.  Delegates to super() if not an AR result set. Aliases of **avg** and **average**|
-|count|Count the given column.  Delegates to super() if not an AR result set|
-|min|Min the given column.  Delegates to super() if not an AR result set|
-|max|Max the given column.  Delegates to super() if not an AR result set|
-|regression|Ordinary Least Squares regression on the given column.  Returns the regression as an array. Argument should be either an ActiveRecord result set or an array of numbers|
-|slope|Returns the slope of a regression on a given column. Argument should be either an ActiveRecord result set or an array of numbers|
-|make_numeric|Coerces a column to be numeric.  Useful if you have derived columns returned from a query that are not in the model definition and hence are otherwise returned as strings.  Returns **self** so is composable|
+p. Also coming soon
 
 h1. License
 
