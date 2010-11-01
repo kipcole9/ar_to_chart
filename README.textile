@@ -11,7 +11,7 @@ h2. Dependencies
 ar_to_chart depends on:
 
 *	jQuery (jquery.com)
-* 	Highcharts (www.highcharts.com)
+*	Highcharts (www.highcharts.com)
 *	arToChart javascript object (found in the files directory of the gem). This is the javascript interface between ar_to_chart and the Highcharts library
 *	ar_to_chart.css (found in the files directory of the gem).  This css defines the attributes used by the ar_to_chart javascript.
 

@@ -139,7 +139,7 @@ module Charting
     # Clear the saved instance which we should do at the start
     # of each Rails request
     def self.clear
-      Thread.current[:period] = nil
+      Thread.current[:period2] = nil
     end
   
     # Called when we're configured as a before_filter which we need to
@@ -150,8 +150,8 @@ module Charting
 
     # Arrange for instance methods to be called as if class methods.  Make threadsafe.
     def self.method_missing(method, *args)
-      Thread.current[:period] = new unless Thread.current[:period]
-      self.instance_methods.include?(method.to_s) ? Thread.current[:period].send(method, *args) : super
+      Thread.current[:period2] = new unless Thread.current[:period2]
+      self.instance_methods.include?(method.to_s) ? Thread.current[:period2].send(method, *args) : super
     end
   end
 end
